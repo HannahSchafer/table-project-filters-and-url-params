@@ -4,12 +4,10 @@ const FILTERS = ['segments', 'functions'];
 export const useSetFilters = (
   newfilterInput,
   setQueryParam,
-  setParams,
-  params,
   initialParams,
   search
 ) => {
-  const [filteredDataItems, setFilteredDataItems] = useState([]);
+  const [params, setParams] = useState(initialParams);
 
   // APPLY QUERY PARAM FILTERS
   useEffect(() => {
@@ -38,6 +36,11 @@ export const useSetFilters = (
   useEffect(() => {
     setQueryParam(newfilterInput);
   }, [params]);
+
+  return {
+    params,
+    initialParams
+  }
 };
 
 const applyFilters = (newfilterInput, params, setQueryParam, setParams) => {

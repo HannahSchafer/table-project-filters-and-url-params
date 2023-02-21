@@ -11,8 +11,6 @@ export const useFetchCollection = (tableIdentifier = '', newfilterInput) => {
     [`page`]: Number.parseInt(search.get(`page`)) || 1,
     [`limit`]: Number.parseInt(search.get(`limit`)) || 10,
   };
-  const [params, setParams] = useState(initialParams);
-  const [data, setData] = useState([]);
 
   const setQueryParam = (newfilterInput) => {
     if (!newfilterInput) {
@@ -23,11 +21,12 @@ export const useFetchCollection = (tableIdentifier = '', newfilterInput) => {
     fetchData();
   };
 
-  useSetFilters(
+
+  const [data, setData] = useState([]);
+
+  const { params } = useSetFilters(
     newfilterInput,
     setQueryParam,
-    setParams,
-    params,
     initialParams,
     search
   );
@@ -63,7 +62,6 @@ export const useFetchCollection = (tableIdentifier = '', newfilterInput) => {
       }),
       {}
     ),
-    setQueryParam,
     isLoading,
     data,
     params,
