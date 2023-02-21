@@ -68,14 +68,14 @@ const Home = () => {
           <FilterBox
             label="Select a Function"
             id="functions"
-            selectedOptions={params['functions'] && params['functions']}
+            selectedOptions={params?.functions}
             options={functions}
             handleFilter={handleFilter}
           />
           <FilterBox
             label="Select a Segment"
             id="segments"
-            selectedOptions={params['segments'] && params['segments']}
+            selectedOptions={params?.segments}
             options={segments}
             handleFilter={handleFilter}
           />
