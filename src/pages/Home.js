@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { useFetchCollection } from 'hooks/useFetchCollection';
 import Table from 'components/tables/Table';
@@ -51,9 +51,15 @@ const columns = [
     ),
   },
 ];
+const FILTERS = ['segments', 'functions'];
 
 const Home = () => {
-  const { data } = useFetchCollection;
+  const [newfilterInput, setNewFilterInput] = useState(null);
+  const { data, params } = useFetchCollection('', newfilterInput);
+
+  const handleFilter = ({ key, value }) => {
+    setNewFilterInput({ key, value });
+  };
 
   return (
     <Main>
@@ -62,16 +68,16 @@ const Home = () => {
           <FilterBox
             label="Select a Function"
             id="functions"
-            selectedOptions={}
+            selectedOptions={params['functions'] && params['functions']}
             options={functions}
-            handleFilter={}
+            handleFilter={handleFilter}
           />
           <FilterBox
             label="Select a Segment"
             id="segments"
-            selectedOptions={}
+            selectedOptions={params['segments'] && params['segments']}
             options={segments}
-            handleFilter={}
+            handleFilter={handleFilter}
           />
         </div>
 
@@ -80,13 +86,13 @@ const Home = () => {
             columns={columns}
             data={data?.items}
             total={data?.total}
-            progressPending={}
+            progressPending={null}
           />
           <Pagination
-            currentPage={}
-            limit={}
+            currentPage={null}
+            limit={null}
             total={data?.total}
-            onChangePage={}
+            onChangePage={null}
           />
         </div>
       </Content>

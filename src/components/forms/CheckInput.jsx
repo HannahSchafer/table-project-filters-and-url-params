@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import screen from 'superior-mq';
 import { bp } from 'styles/helpers';
 import VisuallyHidden from 'components/VisuallyHidden';
-import Label from 'components/forms/Label';
 
 const CheckWrap = styled.div`
   vertical-align: top;
@@ -33,29 +32,10 @@ const CheckWrap = styled.div`
 const StyledCheck = styled.input`
   &:checked,
   &:not(:checked) {
-    position: absolute;
-    left: -9999px;
   }
 
   &:focus + label::before {
     box-shadow: 0 0 6px var(--primary-green);
-  }
-
-  + label {
-    position: relative;
-    cursor: pointer;
-    display: block;
-    color: var(--black);
-    padding: 0 0 0 24px;
-    line-height: 1.2;
-    z-index: 1;
-
-    ${screen.below(
-      bp.mobileRealSm,
-      `
-      padding-left: 20px;
-    `
-    )};
   }
 
   + label::before,
@@ -66,11 +46,6 @@ const StyledCheck = styled.input`
     height: 16px;
     top: 0;
     left: 0;
-  }
-
-  + label::before {
-    border: solid 2px var(--primary-green);
-    border-radius: 3px;
   }
 
   + label::after {
