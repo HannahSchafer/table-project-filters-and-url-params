@@ -9,22 +9,16 @@ export const useSetFilters = (
 ) => {
   const [params, setParams] = useState(initialParams);
 
-  // APPLY QUERY PARAM FILTERS
+  // APPLY QUERY PARAM FILTERS ON LOAD
   useEffect(() => {
-    let selectedInitialFilters = {};
     FILTERS?.forEach((filterType) => {
       const urlFilters = search.get(`${filterType}`);
       if (urlFilters?.length > 0) {
         initialParams[`${filterType}`] = urlFilters
           ? urlFilters?.split(',')
           : [];
-        selectedInitialFilters[filterType] = initialParams[`${filterType}`];
       }
     });
-    setParams((params) => ({
-      ...params,
-      ...selectedInitialFilters,
-    }));
   }, []);
 
   // APPLY CHOICES TO CHECKBOXES
@@ -39,8 +33,8 @@ export const useSetFilters = (
 
   return {
     params,
-    initialParams
-  }
+    initialParams,
+  };
 };
 
 const applyFilters = (newfilterInput, params, setQueryParam, setParams) => {

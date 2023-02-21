@@ -21,7 +21,6 @@ export const useFetchCollection = (tableIdentifier = '', newfilterInput) => {
     fetchData();
   };
 
-
   const [data, setData] = useState([]);
 
   const { params } = useSetFilters(

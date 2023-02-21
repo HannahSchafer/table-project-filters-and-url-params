@@ -38,16 +38,6 @@ const StyledCheck = styled.input`
     box-shadow: 0 0 6px var(--primary-green);
   }
 
-  + label::before,
-  + label::after {
-    content: '';
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    top: 0;
-    left: 0;
-  }
-
   + label::after {
     background: url('/images/check.svg');
     background-position: center;
