@@ -17,12 +17,7 @@ const CheckWrap = styled.div`
   `
   )}
 
-  ${screen.below(
-    bp.mobileRealSm,
-    `
-    text-align: center;
-  `
-  )};
+
 `;
 
 const StyledCheck = styled.input`

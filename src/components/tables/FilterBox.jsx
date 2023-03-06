@@ -20,7 +20,17 @@ const StyledWrap = styled.div`
     bp.portrait,
     `
     width: 48%;
+    max-height: 175px;
+    margin-bottom: 10px;
   `
+  )}
+
+  ${screen.below(
+    bp.mobileSm,
+    `
+    width: 100%;
+    max-height: 125px;
+    `
   )}
 
 

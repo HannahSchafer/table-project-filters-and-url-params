@@ -38,6 +38,13 @@ const FilterBoxContainer = styled.div`
     justify-content: space-between;
     `
   )}
+
+  ${screen.below(
+    bp.mobileSm,
+    `
+    display: block;
+    `
+  )}
 `;
 
 
