@@ -9,6 +9,7 @@ const ColumnName = styled.div`
   font-weight: 600;
   padding: 20px 8px 20px 0;
   flex: 1 0 auto;
+  display: none;
 
   ${screen.above(
     bp.portrait,

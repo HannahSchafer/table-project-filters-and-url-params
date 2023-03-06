@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CheckInput from 'components/forms/CheckInput';
+import screen from 'superior-mq';
+import { bp } from 'styles/helpers';
 
 const StyledWrap = styled.div`
   padding: 10px;
@@ -13,6 +15,15 @@ const StyledWrap = styled.div`
   margin-bottom: 30px;
   background-color: var(--border-light);
   border-radius: var(--border-radius);
+
+  ${screen.below(
+    bp.portrait,
+    `
+    width: 48%;
+  `
+  )}
+
+
 `;
 
 const FilterTitle = styled.h3``;

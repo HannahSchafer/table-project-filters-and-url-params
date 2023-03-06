@@ -7,6 +7,8 @@ import Pagination from 'components/tables/Pagination';
 import functions from '../data/functions.json';
 import segments from '../data/segments.json';
 import FilterBox from 'components/tables/FilterBox';
+import screen from 'superior-mq';
+import { bp } from 'styles/helpers';
 
 const Main = styled.div`
   display: flex;
@@ -18,8 +20,26 @@ const Content = styled.div`
   display: grid;
   grid-template-columns: 200px auto;
   grid-gap: 20px;
-  max-width: 800px;
+
+  ${screen.below(
+    bp.portrait,
+    `
+    display: block;
+  `
+  )}
 `;
+
+
+const FilterBoxContainer = styled.div`
+  ${screen.below(
+    bp.portrait,
+    `
+    display: flex;
+    justify-content: space-between;
+    `
+  )}
+`;
+
 
 const columns = [
   {
@@ -64,7 +84,7 @@ const Home = () => {
   return (
     <Main>
       <Content>
-        <div>
+        <FilterBoxContainer>
           <FilterBox
             label="Select a Function"
             id="functions"
@@ -79,7 +99,7 @@ const Home = () => {
             options={segments}
             handleFilter={handleFilter}
           />
-        </div>
+        </FilterBoxContainer>
 
         <div>
           <Table

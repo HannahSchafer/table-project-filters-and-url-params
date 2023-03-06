@@ -14,10 +14,6 @@ const CheckWrap = styled.div`
     bp.portrait,
     `
     display: block;
-
-    &:not(:last-of-type) {
-      margin-bottom: 20px;
-    }
   `
   )}
 
